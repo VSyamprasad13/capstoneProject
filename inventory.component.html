@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h2>Inventory Items</h2>
+  <button class="btn btn-primary" (click)="openAddItemModal()">Add Item</button>
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }}</td>
+        <td>
+          <button class="btn btn-warning" (click)="editItem(item)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteItem(item.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
