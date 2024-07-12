@@ -22,5 +22,19 @@ export class InventoryComponent implements OnInit {
     });
   }
 
-  // Add methods for add/edit/delete will go here
+  addItem(item: InventoryItem): void {
+    this.inventoryService.addItem(item).subscribe(newItem => {
+      this.items.push(newItem);
+    });
+  }
+
+  editItem(item: InventoryItem): void {
+    // Implement edit logic here (e.g., open a modal)
+  }
+
+  deleteItem(id: number): void {
+    this.inventoryService.deleteItem(id).subscribe(() => {
+      this.items = this.items.filter(item => item.id !== id);
+    });
+  }
 }
